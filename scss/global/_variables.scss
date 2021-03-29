@@ -1,0 +1,21 @@
+// INITIALIZE COLORS
+$primary-color: hsl(356, 100%, 66%);
+$primary-color--light: hsl(355, 100%, 74%);
+$secondary-color: hsl(208, 49%, 24%);
+$light-color: hsl(0, 0%, 100%);
+$dark-color: hsl(240, 10%, 16%);
+$gray-color: hsl(240, 2%, 79%);
+$gray-color--dark: hsl(207, 13%, 34%);
+
+// TEXT COLORS
+$text-color: $gray-color--dark;
+$text-color--inverted: $light-color;
+$text-color--titles: $secondary-color;
+$text-color--footer: $gray-color;
+
+// BUTTON COLORS
+$button-color: $primary-color;
+$button-color--hover: $primary-color--light;
+
+// BACKGROUND COLORS
+$background--footer: $dark-color;
