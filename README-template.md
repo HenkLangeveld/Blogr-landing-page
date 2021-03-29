@@ -45,6 +45,8 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 - Live Site URL: [Add live site URL here](https://your-live-site-url.com)
 
 ## My process
+I have used SASS to structure my CSS with a folder for the global styles and a folder for components. 
+For the color variables I have not used the color names, like 'red' or 'blue' so I can change them to yellow and not have to update the color name. After that I used those names for specific components. This way a color can be used for example text and border without the name getting in the way (like using 'text color' for a border).
 
 ### Built with
 
@@ -91,7 +93,7 @@ Use this section to outline areas that you want to continue focusing on in futur
 
 ### Useful resources
 
-- [Sass setup](https://medium.com/@brianhan/watch-compile-your-sass-with-npm-9ba2b878415b) - I followed this article to setup my Sass
+- [Sass setup](https://medium.com/@brianhan/watch-compile-your-sass-with-npm-9ba2b878415b) - I followed this article to setup my Sass. The only thing I changed is to use 'start' in my package.json file instead of 'watch-css' so I can just use 'npm start' in the terminal.
 - [Responsive setup](https://www.youtube.com/watch?v=LzRfa6xAkqk) - This video gave me a lot of ideas of how best to deal with a responsive site.
 
 
