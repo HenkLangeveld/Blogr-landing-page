@@ -34,6 +34,25 @@ img {
 .attribution a {
   color: #3e52a3; }
 
+.button {
+  padding: .5rem;
+  border: 1px solid white;
+  border-radius: 2em;
+  font-size: inherit;
+  min-width: 120px; }
+  .button--primary {
+    background-color: white;
+    color: #ff525d; }
+  .button--outline {
+    background-color: transparent;
+    color: white; }
+  @media (max-width: 399px) {
+    .button--sign-up {
+      background: linear-gradient(90deg, #ff8f70, #ff3d54);
+      color: white;
+      padding: 1.5rem;
+      min-width: 180px; } }
+
 .header {
   position: fixed;
   z-index: 10;
