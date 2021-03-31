@@ -1,0 +1,26 @@
+.button {
+	padding: .5rem;
+	border: 1px solid $light-color;
+	border-radius: 2em;
+	font-size: inherit;
+	min-width: 120px;
+
+	&--primary {
+		background-color: $light-color;
+		color: $primary-color;
+	}
+
+	&--outline {
+		background-color: transparent;
+		color: $light-color;
+	}
+
+	&--sign-up {
+		@media #{$small} {
+			background: linear-gradient(90deg, hsl(13, 100%, 72%), hsl(353, 100%, 62%));
+			color: $light-color;
+			padding: 1.5rem;
+			min-width: 180px;
+		}
+	}
+}
