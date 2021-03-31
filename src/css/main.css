@@ -52,7 +52,6 @@ img {
 .hero {
   position: relative;
   overflow: hidden;
-  background: linear-gradient(90deg, #ff8f70, #ff3d54);
   color: white;
   min-height: 600px;
   display: flex;
@@ -60,6 +59,12 @@ img {
   align-items: center;
   justify-content: center;
   border-bottom-left-radius: 100px; }
+  @media (max-width: 399px) {
+    .hero {
+      background: linear-gradient(#ff8f70, #ff3d54); } }
+  @media (min-width: 400px) and (max-width: 1440px), (min-width: 1441px) {
+    .hero {
+      background: linear-gradient(90deg, #ff8f70, #ff3d54); } }
   .hero__image {
     position: absolute;
     z-index: 0;
