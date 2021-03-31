@@ -1,7 +1,6 @@
 .hero {
 	position: relative;
 	overflow: hidden;
-	background: linear-gradient(90deg, hsl(13, 100%, 72%), hsl(353, 100%, 62%));
 	color: $text-color--inverted;
 	min-height: 600px;
 	display: flex;
@@ -9,6 +8,13 @@
 	align-items: center;
 	justify-content: center;
 	border-bottom-left-radius: 100px;
+
+	@media #{$small} {
+		background: linear-gradient(hsl(13, 100%, 72%), hsl(353, 100%, 62%));
+	}
+	@media #{$medium}, #{$large} {
+		background: linear-gradient(90deg, hsl(13, 100%, 72%), hsl(353, 100%, 62%));
+	}
 
 	&__image {
 		position: absolute;
