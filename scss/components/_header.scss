@@ -1,15 +1,93 @@
 .header {
 	position: fixed;
-	z-index: 1;
+	z-index: 10;
 	top: 0;
 	color: $text-color--inverted;
 	width: 100%;
-	display: flex;
-	justify-content: space-between;
+	display: grid;
+	grid-template-columns: auto 1fr;
+	// align-items: center;
+	// justify-content: space-between;
+	padding: 4rem 1.5rem 2rem 2rem;
 
 	.nav {
+		display: flex;
+		justify-content: space-between;
+		font-size: 1.2rem;
+
 		& > ul {
 			display: flex;
+			border-bottom: 1px solid $gray-color;
 		}
+
+		&__item {
+			position: relative;
+			&::after {
+				position: absolute;
+				top: 0;
+				right: -1.5em;
+				content: "";
+				width: 1rem;
+				height: 1rem;
+				background: url("../images/icon-arrow-dark.svg") no-repeat center;
+			}
+		}
+
+		&__sub-item {
+			display: none;
+		}
+
+		@media #{$small} {
+			position: absolute;
+			flex-direction: column;
+			top: 150px;
+			left: 50%;
+			transform: translateX(-50%);
+			width: 90%;
+			padding: 1rem;
+			margin: auto;
+			background-color: $light-color;
+			color: $text-color;
+			border-radius: 7px;
+			text-align: center;
+
+			& > ul {
+				flex-direction: column;
+			}
+
+			&__item {
+				margin: 1rem auto;
+			}
+
+			.user-buttons {
+				display: flex;
+				flex-direction: column;
+
+				button {
+					margin: 1rem auto;
+				}
+			}
+		}
+	}
+
+	.user-buttons {
+		@media #{$small} {
+		}
+	}
+}
+
+.mobile-menu-icon {
+	position: relative;
+	justify-self: end;
+	width: 2.5rem;
+	height: 2.5rem;
+	background: url("../images/icon-hamburger.svg") no-repeat center;
+
+	@media #{$medium}, #{$large} {
+		display: none;
+	}
+
+	&--close-x {
+		background: url("../images/icon-close.svg") no-repeat center;
 	}
 }
