@@ -44,13 +44,21 @@ img {
   border: 1px solid white;
   border-radius: 2em;
   font-size: inherit;
-  min-width: 120px; }
+  min-width: 120px;
+  transition: background-color 300ms, color 300ms, border-color 300ms; }
   .button--primary {
     background-color: white;
     color: #ff525d; }
+    .button--primary:hover {
+      background-color: #ff7a85;
+      border-color: #ff7a85;
+      color: white; }
   .button--outline {
     background-color: transparent;
     color: white; }
+    .button--outline:hover {
+      background-color: white;
+      color: #ff525d; }
   @media (max-width: 399px) {
     .button--sign-up {
       background: linear-gradient(90deg, #ff8f70, #ff3d54);
