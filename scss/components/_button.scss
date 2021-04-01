@@ -4,15 +4,27 @@
 	border-radius: 2em;
 	font-size: inherit;
 	min-width: 120px;
+	transition: background-color 300ms, color 300ms, border-color 300ms;
 
 	&--primary {
 		background-color: $light-color;
 		color: $primary-color;
+
+		&:hover {
+			background-color: $primary-color--light;
+			border-color: $primary-color--light;
+			color: $light-color;
+		}
 	}
 
 	&--outline {
 		background-color: transparent;
 		color: $light-color;
+
+		&:hover {
+			background-color: $light-color;
+			color: $primary-color;
+		}
 	}
 
 	&--sign-up {
