@@ -6,72 +6,205 @@
 	width: 100%;
 	display: grid;
 	grid-template-columns: auto 1fr;
+	align-items: end;
+	gap: 4rem;
 	// align-items: center;
 	// justify-content: space-between;
-	padding: 4rem 1.5rem 2rem 2rem;
+
+	@media #{$small} {
+		padding: 4rem 1.5rem 2rem 2rem;
+	}
+
+	@media #{$medium}, #{$large} {
+		padding: 4rem 8rem;
+	}
 
 	.nav {
 		display: flex;
-		justify-content: space-between;
-		font-size: 1.2rem;
 
-		& > ul {
-			display: flex;
-			border-bottom: 1px solid $gray-color;
-		}
-
+		// add after element for expand arrow to main li
 		&__item {
-			position: relative;
-			&::after {
-				position: absolute;
-				top: 0;
-				right: -1.5em;
-				content: "";
-				width: 1rem;
-				height: 1rem;
-				background: url("../images/icon-arrow-dark.svg") no-repeat center;
+			span {
+				position: relative;
+				display: inline-block;
+
+				&::after {
+					position: absolute;
+					content: "";
+					width: 1rem;
+					height: 1rem;
+					transition: transform 700ms;
+				}
+			}
+
+			& > ul {
+				max-height: 0;
+				overflow: hidden;
+				transition: max-height 700ms, padding 700ms;
+			}
+
+			&:hover,
+			&:focus {
+				& > span::after {
+					transform: rotate(180deg);
+				}
+
+				& > ul {
+					max-height: 20em;
+				}
 			}
 		}
 
-		&__sub-item {
-			display: none;
-		}
+		//
+		// styling for small width
+		//
 
 		@media #{$small} {
 			position: absolute;
-			flex-direction: column;
-			top: 150px;
+			top: 0;
 			left: 50%;
 			transform: translateX(-50%);
 			width: 90%;
-			padding: 1rem;
-			margin: auto;
+			flex-direction: column;
 			background-color: $light-color;
 			color: $text-color;
-			border-radius: 7px;
 			text-align: center;
+			border-radius: 7px;
+			padding: 0;
+			box-shadow: 0 10px 20px rgba($gray-color--dark, 0.4);
+			max-height: 0;
+			overflow: hidden;
+			transition: max-height 700ms, padding 300ms, top 700ms;
 
-			& > ul {
-				flex-direction: column;
+			&-main--is-visible {
+				top: 150px;
+				padding: .5rem 1rem;
+				max-height: 50em;
 			}
 
+			// style the outer ul
+			& > ul {
+				border-bottom: 1px solid $gray-color;
+				margin-top: 1rem;
+				padding-bottom: 2rem;
+			}
+
+			// add expand arrow to main li
 			&__item {
-				margin: 1rem auto;
+				span {
+					top: 1rem;
+					right: -0.2em;
+					padding: 1rem;
+					&::after {
+						background: url("../images/icon-arrow-dark.svg") no-repeat center;
+					}
+				}
+
+				&:hover,
+				&:focus {
+					& > ul {
+						padding: 1rem;
+					}
+				}
+
+				// style the inner ul
+				& > ul {
+					background-color: $gray-color;
+					border-radius: 7px;
+					max-height: 0;
+					overflow: hidden;
+					transition: max-height 700ms, padding 700ms;
+				}
+			}
+
+			&__sub-item {
+				padding: 1rem;
 			}
 
 			.user-buttons {
 				display: flex;
 				flex-direction: column;
 
-				button {
+				button,
+				a {
 					margin: 1rem auto;
+				}
+
+				a {
+					padding-top: 1rem;
+				}
+			}
+		}
+
+		//
+		// styling for medium and large width
+		//
+		@media #{$medium}, #{$large} {
+			justify-content: space-between;
+			align-items: center;
+
+			& > ul {
+				display: flex;
+				gap: 3em;
+			}
+
+			&__item {
+				position: relative;
+
+				& > ul {
+					padding: 0 4rem 0 1.5rem;
+				}
+
+				&:hover {
+					border-bottom: 2px solid $light-color;
+
+					span {
+						font-weight: bold;
+					}
+
+					& > ul {
+						padding: 2rem 4rem 2rem 1.5rem;
+					}
+				}
+
+				span {
+					&::after {
+						top: 0;
+						right: -1.2rem;
+						background: url("../images/icon-arrow-light.svg") no-repeat center;
+					}
+				}
+
+				// style inner ul
+				& > ul {
+					position: absolute;
+					top: 2.5em;
+					background-color: $light-color;
+					color: $text-color;
+					box-shadow: 0 10px 15px rgba($gray-color--dark, 0.4);
+					transform: translateX(-1.5rem); // lineup with parent-> adjust padding right
+					border-radius: 5px;
+					line-height: 2;
+				}
+			}
+
+			&__sub-item {
+				&:hover {
+					font-weight: bold;
 				}
 			}
 		}
 	}
 
 	.user-buttons {
-		@media #{$small} {
+		display: flex;
+		align-items: center;
+		gap: 2rem;
+
+		#login {
+			&:hover {
+				border-bottom: 2px solid $light-color;
+			}
 		}
 	}
 }

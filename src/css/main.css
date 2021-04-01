@@ -5,10 +5,15 @@ h1,
 h2,
 h3,
 h4 {
-  font-family: 'Overpass', sans-serif; }
+  font-family: 'Overpass', sans-serif;
+  line-height: 1.2;
+  text-align: center; }
 
 h1 {
   font-size: 4rem; }
+  @media (max-width: 399px) {
+    h1 {
+      font-size: 2.2rem; } }
 
 *,
 *::before,
@@ -61,49 +66,120 @@ img {
   width: 100%;
   display: grid;
   grid-template-columns: auto 1fr;
-  padding: 4rem 1.5rem 2rem 2rem; }
+  align-items: end;
+  gap: 4rem; }
+  @media (max-width: 399px) {
+    .header {
+      padding: 4rem 1.5rem 2rem 2rem; } }
+  @media (min-width: 400px) and (max-width: 1440px), (min-width: 1441px) {
+    .header {
+      padding: 4rem 8rem; } }
   .header .nav {
-    display: flex;
-    justify-content: space-between;
-    font-size: 1.2rem; }
-    .header .nav > ul {
-      display: flex;
-      border-bottom: 1px solid #c8c8cb; }
-    .header .nav__item {
-      position: relative; }
-      .header .nav__item::after {
+    display: flex; }
+    .header .nav__item span {
+      position: relative;
+      display: inline-block; }
+      .header .nav__item span::after {
         position: absolute;
-        top: 0;
-        right: -1.5em;
         content: "";
         width: 1rem;
         height: 1rem;
-        background: url("../images/icon-arrow-dark.svg") no-repeat center; }
-    .header .nav__sub-item {
-      display: none; }
+        transition: transform 700ms; }
+    .header .nav__item > ul {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 700ms, padding 700ms; }
+    .header .nav__item:hover > span::after, .header .nav__item:focus > span::after {
+      transform: rotate(180deg); }
+    .header .nav__item:hover > ul, .header .nav__item:focus > ul {
+      max-height: 20em; }
     @media (max-width: 399px) {
       .header .nav {
         position: absolute;
-        flex-direction: column;
-        top: 150px;
+        top: 0;
         left: 50%;
         transform: translateX(-50%);
         width: 90%;
-        padding: 1rem;
-        margin: auto;
+        flex-direction: column;
         background-color: white;
         color: #4b5862;
+        text-align: center;
         border-radius: 7px;
-        text-align: center; }
+        padding: 0;
+        box-shadow: 0 10px 20px rgba(75, 88, 98, 0.4);
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 700ms, padding 300ms, top 700ms; }
+        .header .nav-main--is-visible {
+          top: 150px;
+          padding: .5rem 1rem;
+          max-height: 50em; }
         .header .nav > ul {
-          flex-direction: column; }
-        .header .nav__item {
-          margin: 1rem auto; }
+          border-bottom: 1px solid #c8c8cb;
+          margin-top: 1rem;
+          padding-bottom: 2rem; }
+        .header .nav__item span {
+          top: 1rem;
+          right: -0.2em;
+          padding: 1rem; }
+          .header .nav__item span::after {
+            background: url("../images/icon-arrow-dark.svg") no-repeat center; }
+        .header .nav__item:hover > ul, .header .nav__item:focus > ul {
+          padding: 1rem; }
+        .header .nav__item > ul {
+          background-color: #c8c8cb;
+          border-radius: 7px;
+          max-height: 0;
+          overflow: hidden;
+          transition: max-height 700ms, padding 700ms; }
+        .header .nav__sub-item {
+          padding: 1rem; }
         .header .nav .user-buttons {
           display: flex;
           flex-direction: column; }
-          .header .nav .user-buttons button {
-            margin: 1rem auto; } }
+          .header .nav .user-buttons button,
+          .header .nav .user-buttons a {
+            margin: 1rem auto; }
+          .header .nav .user-buttons a {
+            padding-top: 1rem; } }
+    @media (min-width: 400px) and (max-width: 1440px), (min-width: 1441px) {
+      .header .nav {
+        justify-content: space-between;
+        align-items: center; }
+        .header .nav > ul {
+          display: flex;
+          gap: 3em; }
+        .header .nav__item {
+          position: relative; }
+          .header .nav__item > ul {
+            padding: 0 4rem 0 1.5rem; }
+          .header .nav__item:hover {
+            border-bottom: 2px solid white; }
+            .header .nav__item:hover span {
+              font-weight: bold; }
+            .header .nav__item:hover > ul {
+              padding: 2rem 4rem 2rem 1.5rem; }
+          .header .nav__item span::after {
+            top: 0;
+            right: -1.2rem;
+            background: url("../images/icon-arrow-light.svg") no-repeat center; }
+          .header .nav__item > ul {
+            position: absolute;
+            top: 2.5em;
+            background-color: white;
+            color: #4b5862;
+            box-shadow: 0 10px 15px rgba(75, 88, 98, 0.4);
+            transform: translateX(-1.5rem);
+            border-radius: 5px;
+            line-height: 2; }
+        .header .nav__sub-item:hover {
+          font-weight: bold; } }
+  .header .user-buttons {
+    display: flex;
+    align-items: center;
+    gap: 2rem; }
+    .header .user-buttons #login:hover {
+      border-bottom: 2px solid white; }
 
 .mobile-menu-icon {
   position: relative;
@@ -126,6 +202,7 @@ img {
   overflow: hidden;
   color: white;
   min-height: 600px;
+  padding: 0 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
