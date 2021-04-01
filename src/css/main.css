@@ -229,3 +229,10 @@ img {
     left: 20%; }
   .hero__title, .hero__text, .hero__cta {
     z-index: 1; }
+  .hero__text {
+    margin: 1rem auto 2rem auto;
+    font-family: overpass, sans-serif;
+    font-size: 1.2rem; }
+  .hero__cta {
+    display: flex;
+    gap: 1rem; }
