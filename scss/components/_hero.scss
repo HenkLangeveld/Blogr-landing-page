@@ -29,4 +29,15 @@
 	&__cta {
 		z-index: 1;
 	}
+
+	&__text {
+		margin: 1rem auto 2rem auto;
+		font-family: overpass, sans-serif;
+		font-size: 1.2rem;
+	}
+
+	&__cta {
+		display: flex;
+		gap: 1rem;
+	}
 }
