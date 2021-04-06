@@ -66,6 +66,75 @@ img {
       padding: 1.5rem;
       min-width: 180px; } }
 
+.menu__item span {
+  position: relative;
+  display: inline-block; }
+  .menu__item span::after {
+    position: absolute;
+    content: "";
+    width: 1rem;
+    height: 1rem;
+    transition: transform 700ms; }
+
+.menu__item:hover > span::after, .menu__item:focus > span::after {
+  transform: rotate(180deg); }
+
+.menu__item:hover .sub-menu, .menu__item:focus .sub-menu {
+  max-height: 20em; }
+
+.menu .sub-menu {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 700ms, padding 700ms; }
+
+@media (min-width: 400px) and (max-width: 1440px), (min-width: 1441px) {
+  .menu {
+    display: flex;
+    gap: 3em; }
+    .menu__item {
+      position: relative; }
+      .menu__item:hover {
+        border-bottom: 2px solid white; }
+        .menu__item:hover span {
+          font-weight: bold; }
+        .menu__item:hover .sub-menu {
+          padding: 1rem 4rem 1rem 1.5rem; }
+      .menu__item span::after {
+        top: 0;
+        right: -1.2rem;
+        background: url("../images/icon-arrow-light.svg") no-repeat center; }
+    .menu .sub-menu {
+      padding: 0 4rem 0 1.5rem;
+      position: absolute;
+      top: 2.5em;
+      background-color: white;
+      color: #4b5862;
+      box-shadow: 0 10px 15px rgba(75, 88, 98, 0.4);
+      transform: translateX(-1.5rem);
+      border-radius: 5px;
+      line-height: 2; }
+      .menu .sub-menu__item:hover {
+        font-weight: bold; } }
+
+@media (max-width: 399px) {
+  .menu {
+    border-bottom: 1px solid #c8c8cb;
+    margin-top: 1rem;
+    padding-bottom: 2rem;
+    line-height: 2.5; }
+    .menu__item span::after {
+      background: url("../images/icon-arrow-dark.svg") no-repeat center;
+      top: .75em;
+      right: -1.2em; }
+    .menu__item:hover .sub-menu, .menu__item:focus .sub-menu {
+      padding: 1rem; }
+    .menu .sub-menu {
+      background-color: #c8c8cb;
+      border-radius: 7px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 700ms, padding 700ms; } }
+
 .header {
   position: fixed;
   z-index: 10;
@@ -84,23 +153,16 @@ img {
       padding: 4rem 8rem; } }
   .header .nav {
     display: flex; }
-    .header .nav__item span {
-      position: relative;
-      display: inline-block; }
-      .header .nav__item span::after {
-        position: absolute;
-        content: "";
-        width: 1rem;
-        height: 1rem;
-        transition: transform 700ms; }
-    .header .nav__item > ul {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 700ms, padding 700ms; }
-    .header .nav__item:hover > span::after, .header .nav__item:focus > span::after {
-      transform: rotate(180deg); }
-    .header .nav__item:hover > ul, .header .nav__item:focus > ul {
-      max-height: 20em; }
+    .header .nav .user-buttons {
+      display: flex;
+      align-items: center;
+      gap: 2rem; }
+      .header .nav .user-buttons #login:hover {
+        border-bottom: 2px solid white; }
+    @media (min-width: 400px) and (max-width: 1440px), (min-width: 1441px) {
+      .header .nav {
+        justify-content: space-between;
+        align-items: center; } }
     @media (max-width: 399px) {
       .header .nav {
         position: absolute;
@@ -118,88 +180,24 @@ img {
         max-height: 0;
         overflow: hidden;
         transition: max-height 700ms, padding 300ms, top 700ms; }
-        .header .nav-main--is-visible {
+        .header .nav--is-visible {
           top: 150px;
           padding: .5rem 1rem;
           max-height: 50em; }
-        .header .nav > ul {
-          border-bottom: 1px solid #c8c8cb;
-          margin-top: 1rem;
-          padding-bottom: 2rem; }
-        .header .nav__item span {
-          top: 1rem;
-          right: -0.2em;
-          padding: 1rem; }
-          .header .nav__item span::after {
-            background: url("../images/icon-arrow-dark.svg") no-repeat center; }
-        .header .nav__item:hover > ul, .header .nav__item:focus > ul {
-          padding: 1rem; }
-        .header .nav__item > ul {
-          background-color: #c8c8cb;
-          border-radius: 7px;
-          max-height: 0;
-          overflow: hidden;
-          transition: max-height 700ms, padding 700ms; }
-        .header .nav__sub-item {
-          padding: 1rem; }
         .header .nav .user-buttons {
-          display: flex;
-          flex-direction: column; }
-          .header .nav .user-buttons button,
-          .header .nav .user-buttons a {
-            margin: 1rem auto; }
-          .header .nav .user-buttons a {
-            padding-top: 1rem; } }
+          flex-direction: column;
+          margin: 2rem auto; } }
+  .header .mobile-menu-icon {
+    position: relative;
+    justify-self: end;
+    width: 2.5rem;
+    height: 2.5rem;
+    background: url("../images/icon-hamburger.svg") no-repeat center; }
     @media (min-width: 400px) and (max-width: 1440px), (min-width: 1441px) {
-      .header .nav {
-        justify-content: space-between;
-        align-items: center; }
-        .header .nav > ul {
-          display: flex;
-          gap: 3em; }
-        .header .nav__item {
-          position: relative; }
-          .header .nav__item > ul {
-            padding: 0 4rem 0 1.5rem; }
-          .header .nav__item:hover {
-            border-bottom: 2px solid white; }
-            .header .nav__item:hover span {
-              font-weight: bold; }
-            .header .nav__item:hover > ul {
-              padding: 2rem 4rem 2rem 1.5rem; }
-          .header .nav__item span::after {
-            top: 0;
-            right: -1.2rem;
-            background: url("../images/icon-arrow-light.svg") no-repeat center; }
-          .header .nav__item > ul {
-            position: absolute;
-            top: 2.5em;
-            background-color: white;
-            color: #4b5862;
-            box-shadow: 0 10px 15px rgba(75, 88, 98, 0.4);
-            transform: translateX(-1.5rem);
-            border-radius: 5px;
-            line-height: 2; }
-        .header .nav__sub-item:hover {
-          font-weight: bold; } }
-  .header .user-buttons {
-    display: flex;
-    align-items: center;
-    gap: 2rem; }
-    .header .user-buttons #login:hover {
-      border-bottom: 2px solid white; }
-
-.mobile-menu-icon {
-  position: relative;
-  justify-self: end;
-  width: 2.5rem;
-  height: 2.5rem;
-  background: url("../images/icon-hamburger.svg") no-repeat center; }
-  @media (min-width: 400px) and (max-width: 1440px), (min-width: 1441px) {
-    .mobile-menu-icon {
-      display: none; } }
-  .mobile-menu-icon--close-x {
-    background: url("../images/icon-close.svg") no-repeat center; }
+      .header .mobile-menu-icon {
+        display: none; } }
+    .header .mobile-menu-icon--close-x {
+      background: url("../images/icon-close.svg") no-repeat center; }
 
 .footer {
   background-color: #25252d;
