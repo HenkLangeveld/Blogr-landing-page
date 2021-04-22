@@ -9,6 +9,7 @@
 	align-items: center;
 	justify-content: center;
 	border-bottom-left-radius: 100px;
+	margin-bottom: 9rem;
 
 	@media #{$small} {
 		background: linear-gradient(hsl(13, 100%, 72%), hsl(353, 100%, 62%));
@@ -28,6 +29,10 @@
 	&__text,
 	&__cta {
 		z-index: 1;
+	}
+
+	&__title {
+		color: inherit;
 	}
 
 	&__text {

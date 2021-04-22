@@ -1,0 +1,29 @@
+.columns {
+	display: flex;
+	align-items: center;
+	gap: 2rem;
+
+	@media #{$small} {
+		flex-direction: column;
+	}
+
+	@media #{$medium}, #{$large} {
+		flex-direction: row;
+
+		&--reverse {
+			flex-direction: row-reverse;
+		}
+	}
+}
+
+.column {
+	position: relative;
+	flex-basis: 50%;
+	&--text {
+		padding-left: 8rem;
+		@media #{$small} {
+			padding: 0 2rem;
+			text-align: center;
+		}
+	}
+}

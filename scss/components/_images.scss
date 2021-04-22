@@ -1,0 +1,9 @@
+.image {
+	&--shifted {
+		@media #{$medium}, #{$large} {
+			img {
+				transform: translateX(22%) scale(1.3);
+			}
+		}
+	}
+}
