@@ -1,5 +1,6 @@
 html {
 	font-family: 'Ubuntu', sans-serif;
+	color: $text-color;
 }
 
 h1,
@@ -7,14 +8,49 @@ h2,
 h3,
 h4 {
 	font-family: 'Overpass', sans-serif;
+	color: $text-color--titles;
+	font-weight: 300;
 	line-height: 1.2;
-	text-align: center;
 }
 
 h1 {
-	font-size: 4rem;
+	text-align: center;
+	@media #{$medium}, #{$large} {
+		font-size: 4rem;
+	}
 
 	@media #{$small} {
 		font-size: 2.2rem;
 	}
+}
+
+h2 {
+	text-align: center;
+	font-weight: bold;
+	margin: 2rem 0;
+	@media #{$medium}, #{$large} {
+		font-size: 2rem;
+	}
+
+	@media #{$small} {
+		font-size: 1.7rem;
+	}
+}
+
+h3 {
+	font-size: 1.5rem;
+
+	@media #{$small} {
+		margin: 2rem 1rem;
+		text-align: center;
+	}
+
+	@media #{$medium}, #{$large} {
+		margin: 2rem 0;
+	}
+}
+
+p {
+	line-height: 1.7;
+	margin-bottom: 3rem;
 }

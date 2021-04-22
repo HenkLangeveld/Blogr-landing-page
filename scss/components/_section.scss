@@ -1,0 +1,38 @@
+.section {
+	&--dark {
+		position: relative;
+		color: $light-color;
+		border-top-right-radius: 100px;
+		border-bottom-left-radius: 100px;
+		background: hsl(237, 17%, 21%);
+		background-image: url("../../src/images/bg-pattern-circles.svg");
+		background: url("../../src/images/bg-pattern-circles.svg") no-repeat,
+			linear-gradient(90deg, hsl(237, 17%, 21%), hsl(237, 23%, 32%));
+		// background-position: -35% 200%;
+
+		img {
+			position: absolute;
+			z-index: 10;
+		}
+
+		@media #{$small} {
+			background-position: center -230%;
+			background-size: 160%;
+		}
+
+		@media #{$small} {
+			padding: 10.7rem 0 6rem 0;
+		}
+
+		.section {
+			&__title {
+				color: inherit;
+				font-size: 2.5rem;
+			}
+
+			&__text {
+				line-height: 2;
+			}
+		}
+	}
+}
